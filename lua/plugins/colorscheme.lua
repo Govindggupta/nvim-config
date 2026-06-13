@@ -1,9 +1,13 @@
 return {
   {
-    "folke/tokyonight.nvim",
+    "Mofiqul/vscode.nvim",
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme("tokyonight")
+      require("vscode").setup({
+        transparent = true,
+      })
+
+      vim.cmd.colorscheme("vscode")
     end,
   },
 }
