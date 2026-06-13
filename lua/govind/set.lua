@@ -34,3 +34,6 @@ vim.opt.fillchars = {
   eob = " ",
 }
 -- vim.opt.colorcolumn = "150"
+--
+vim.opt.timeout = true
+vim.opt.timeoutlen = 1000

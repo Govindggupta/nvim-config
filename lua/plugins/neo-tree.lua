@@ -8,13 +8,6 @@ return {
       "nvim-tree/nvim-web-devicons",
     },
     opts = {
-        filesystem = {
-    filtered_items = {
-      hide_gitignored = false,
-    },
-  },
-
-  enable_git_status = false,
     },
   },
 }

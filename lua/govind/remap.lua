@@ -86,4 +86,5 @@ end)
 -- neotree <leader> + e 
 vim.keymap.set("n", "<leader>e", "<cmd>Neotree toggle<CR>", {
   desc = "Toggle file explorer",
+  nowait = true, 
 })
