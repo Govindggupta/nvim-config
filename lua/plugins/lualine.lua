@@ -23,7 +23,6 @@ return {
         },
         lualine_x = {
           "diagnostics",
-          "filetype",
         },
         lualine_y = { "progress" },
         lualine_z = { "location" },
