@@ -88,3 +88,23 @@ vim.keymap.set("n", "<leader>e", "<cmd>Neotree toggle<CR>", {
   desc = "Toggle file explorer",
   nowait = true, 
 })
+
+vim.keymap.set("n", "<C-e>", function()
+  local manager = require("neo-tree.sources.manager")
+  local state = manager.get_state("filesystem")
+
+  if state and state.winid and vim.api.nvim_win_is_valid(state.winid) then
+    local current_win = vim.api.nvim_get_current_win()
+
+    if current_win == state.winid then
+      vim.cmd("wincmd p")
+    else
+      vim.api.nvim_set_current_win(state.winid)
+    end
+  else
+    vim.cmd("Neotree focus")
+  end
+end, {
+  desc = "Toggle focus between file and Neo-tree",
+  silent = true,
+})
