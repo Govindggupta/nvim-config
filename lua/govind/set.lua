@@ -27,4 +27,10 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
+vim.opt.number = true
+vim.opt.relativenumber = true
+
+vim.opt.fillchars = {
+  eob = " ",
+}
 -- vim.opt.colorcolumn = "150"
