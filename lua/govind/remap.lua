@@ -84,12 +84,11 @@ end)
 
 
 -- neotree <leader> + e 
-vim.keymap.set("n", "<leader>e", "<cmd>Neotree toggle<CR>", {
+vim.keymap.set("n", "<C-e>", "<cmd>Neotree toggle<CR>", {
   desc = "Toggle file explorer",
-  nowait = true, 
 })
 
-vim.keymap.set("n", "<C-e>", function()
+vim.keymap.set("n", "<leader>e", function()
   local manager = require("neo-tree.sources.manager")
   local state = manager.get_state("filesystem")
 
@@ -107,4 +106,5 @@ vim.keymap.set("n", "<C-e>", function()
 end, {
   desc = "Toggle focus between file and Neo-tree",
   silent = true,
+  nowait = true, 
 })
