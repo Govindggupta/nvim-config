@@ -83,11 +83,12 @@ end)
 
 
 
--- neotree <leader> + e 
+-- neotree toggle
 vim.keymap.set("n", "<C-e>", "<cmd>Neotree toggle<CR>", {
   desc = "Toggle file explorer",
 })
 
+-- neotree focus toggle
 vim.keymap.set("n", "<leader>e", function()
   local manager = require("neo-tree.sources.manager")
   local state = manager.get_state("filesystem")
