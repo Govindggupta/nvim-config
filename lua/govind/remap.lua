@@ -113,3 +113,9 @@ end, {
 -- exit neovim enitrely 
 vim.keymap.set('n', '<leader>qq', '<cmd>wqa<CR>', { desc = 'Save all and quit' })
 
+
+-- switch between buffers (open files) 
+vim.keymap.set("n", "<S-l>", "<cmd>BufferLineCycleNext<CR>")
+vim.keymap.set("n", "<S-h>", "<cmd>BufferLineCyclePrev<CR>")
+-- close the open buffer 
+vim.keymap.set("n", "<leader>x", "<cmd>bdelete<CR>")
