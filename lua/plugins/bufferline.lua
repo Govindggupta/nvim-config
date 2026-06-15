@@ -10,7 +10,9 @@ return {
         offsets = {
           {
             filetype = "neo-tree",
-            text = "File Explorer",
+            text = function()
+          return vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+        end,
             highlight = "Directory",
             text_align = "center",
             separator = true
