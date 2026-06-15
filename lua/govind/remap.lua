@@ -119,3 +119,9 @@ vim.keymap.set("n", "<S-l>", "<cmd>BufferLineCycleNext<CR>")
 vim.keymap.set("n", "<S-h>", "<cmd>BufferLineCyclePrev<CR>")
 -- close the open buffer 
 vim.keymap.set("n", "<leader>x", "<cmd>bdelete<CR>")
+
+-- telescope macros
+vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<CR>", { desc = "Find Files" })
+vim.keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", { desc = "Live Grep" })
+vim.keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<CR>", { desc = "Buffers" })
+vim.keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", { desc = "Help Tags" })

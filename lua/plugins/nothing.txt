@@ -1,6 +1,6 @@
 so now what we're suppose to do is that 
 
-1.<leader>ff / any macro for searching and switching through file 
+1.<leader>ff / any macro for searching and switching through file ==> telescope ✔ 
 2.suggestion on writing 
 3.tailwind 
 4.show the open files ==> bufferline ✔ 
