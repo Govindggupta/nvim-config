@@ -1,0 +1,9 @@
+so now what we're suppose to do is that 
+
+1.<leader>ff / any macro for searching and switching through file 
+2.suggestion on writing 
+3.tailwind 
+4.show the open files 
+5.macro for switching between panes and windows 
+
+

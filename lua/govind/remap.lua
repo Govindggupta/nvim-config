@@ -109,3 +109,7 @@ end, {
   silent = true,
   nowait = true, 
 })
+
+-- exit neovim enitrely 
+vim.keymap.set('n', '<leader>qq', '<cmd>wqa<CR>', { desc = 'Save all and quit' })
+
