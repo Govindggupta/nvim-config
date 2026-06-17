@@ -17,6 +17,20 @@ return {
             text_align = "center",
             separator = true
           },
+      highlights = {
+        separator = {
+          fg = '#434C5E',
+        },
+        buffer_selected = {
+          bold = true,
+          italic = false,
+        },
+        -- separator_selected = {},
+        -- tab_selected = {},
+        -- background = {},
+        -- indicator_selected = {},
+        -- fill = {},
+      },
         },
       },
     },

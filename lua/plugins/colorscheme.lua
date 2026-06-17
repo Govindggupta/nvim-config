@@ -1,6 +1,6 @@
 return {
   {
-  l  "Mofiqul/vscode.nvim",
+    "Mofiqul/vscode.nvim",
     priority = 1000,
     config = function()
       require("vscode").setup({

@@ -14,22 +14,6 @@ return {
             },
         },
         enable_git_status = true,
-
-        default_component_configs = {
-            git_status = {
-                symbols = {
-                    added     = "A",
-                    modified  = "M",
-                    deleted   = "D",
-                    renamed   = "R",
-                    untracked = "U",
-                    ignored   = "I",
-                    unstaged  = "*",
-                    staged    = "✓",
-                    conflict  = "!",
-                },
-            },
-        },
     },
   },
 }
