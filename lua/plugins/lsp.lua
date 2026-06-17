@@ -192,6 +192,8 @@ return {
       --     },
       --   },
       -- },
+      clangd = {},
+      vtsls = {},
       ruff = {},
       jsonls = {},
       sqlls = {},
