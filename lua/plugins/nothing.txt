@@ -4,5 +4,7 @@ so now what we're suppose to do is that
 2.suggestion on writing 
 3.tailwind 
 4.show the open files ==> bufferline ✔ 
-5.macro for switching between panes and windows 
+5.macro for switching between panes and windows ✔ 
 6.A,U,M on the side of the files
+7.comment and macro ✔ 
+
