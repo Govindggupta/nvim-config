@@ -37,3 +37,7 @@ vim.opt.fillchars = {
 --
 vim.opt.timeout = true
 vim.opt.timeoutlen = 1000
+
+-- border for the windows 
+-- Floating windows
+vim.o.winborder = "rounded"
