@@ -47,7 +47,7 @@ vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+-- vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 vim.keymap.set(
     "n",
@@ -107,7 +107,7 @@ vim.keymap.set("n", "<leader>e", function()
 end, {
   desc = "Toggle focus between file and Neo-tree",
   silent = true,
-  nowait = true, 
+  nowait = true,
 })
 
 -- exit neovim enitrely 
@@ -118,8 +118,11 @@ vim.keymap.set('n', '<leader>qq', '<cmd>wqa<CR>', { desc = 'Save all and quit' }
 vim.keymap.set("n", "<S-l>", "<cmd>BufferLineCycleNext<CR>")
 vim.keymap.set("n", "<S-h>", "<cmd>BufferLineCyclePrev<CR>")
 -- close the open buffer 
-vim.keymap.set("n", "<leader>x", "<cmd>bdelete<CR>")
-
+-- vim.keymap.set("n", "<leader>x", function()
+--   vim.cmd("bp")
+--   vim.cmd("bd #")
+-- end, { desc = "Close current buffer" })
+vim.keymap.set("n", "<leader>x", "<cmd>Bdelete<CR>")
 -- telescope macros
 vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<CR>", { desc = "Find Files" })
 vim.keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", { desc = "Live Grep" })
