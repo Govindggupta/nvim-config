@@ -128,3 +128,11 @@ vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<CR>", { desc = "Fin
 vim.keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", { desc = "Live Grep" })
 vim.keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<CR>", { desc = "Buffers" })
 vim.keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", { desc = "Help Tags" })
+
+-- for formating
+vim.keymap.set("n", "<leader>f", function()
+  require("conform").format({
+    async = true,
+    lsp_fallback = true,
+  })
+end, { desc = "Format file" })

@@ -177,38 +177,55 @@ return {
         },
       },
       -- basedpyright = {
-      --   -- Config options: https://github.com/DetachHead/basedpyright/blob/main/docs/settings.md
-      --   settings = {
-      --     basedpyright = {
-      --       disableOrganizeImports = true, -- Using Ruff's import organizer
-      --       disableLanguageServices = false,
-      --       analysis = {
-      --         ignore = { '*' },                 -- Ignore all files for analysis to exclusively use Ruff for linting
-      --         typeCheckingMode = 'off',
-      --         diagnosticMode = 'openFilesOnly', -- Only analyze open files
-      --         useLibraryCodeForTypes = true,
-      --         autoImportCompletions = true,     -- whether pyright offers auto-import completions
-      --       },
-      --     },
-      --   },
-      -- },
-      clangd = {},
-      vtsls = {},
-      ruff = {},
-      jsonls = {},
-      sqlls = {},
-      terraformls = {},
-      yamlls = {},
-      bashls = {},
-      dockerls = {},
-      docker_compose_language_service = {},
-      -- tailwindcss = {},
-      -- graphql = {},
-      html = { filetypes = { 'html', 'twig', 'hbs' } },
-      -- cssls = {},
-      -- ltex = {},
-      -- texlab = {},
-    }
+        --   -- Config options: https://github.com/DetachHead/basedpyright/blob/main/docs/settings.md
+        --   settings = {
+          --     basedpyright = {
+            --       disableOrganizeImports = true, -- Using Ruff's import organizer
+            --       disableLanguageServices = false,
+            --       analysis = {
+              --         ignore = { '*' },                 -- Ignore all files for analysis to exclusively use Ruff for linting
+              --         typeCheckingMode = 'off',
+              --         diagnosticMode = 'openFilesOnly', -- Only analyze open files
+              --         useLibraryCodeForTypes = true,
+              --         autoImportCompletions = true,     -- whether pyright offers auto-import completions
+              --       },
+              --     },
+              --   },
+              -- },
+              clangd = {},
+              vtsls = {},
+              ruff = {},
+              jsonls = {},
+              sqlls = {},
+              terraformls = {},
+              yamlls = {},
+              bashls = {},
+              dockerls = {},
+              docker_compose_language_service = {},
+              tailwindcss = {},
+              -- graphql = {},
+              html = {
+                filetypes = {
+                  "html",
+                  "twig",
+                  "hbs",
+                  "javascriptreact",
+                  "typescriptreact",
+                },
+              },
+              emmet_language_server = {
+                filetypes = {
+                  "html",
+                  "css",
+                  "scss",
+                  "javascriptreact",
+                  "typescriptreact",
+                },
+              },
+              -- cssls = {},
+              -- ltex = {},
+              -- texlab = {},
+            }
 
     -- Ensure the servers and tools above are installed
     local ensure_installed = vim.tbl_keys(servers or {})
