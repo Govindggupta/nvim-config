@@ -50,10 +50,14 @@ return {
     opts = { signs = false },
   },
   {
-    -- high-performance color highlighter
-    'norcalli/nvim-colorizer.lua',
+    "brenoprata10/nvim-highlight-colors",
     config = function()
-      require('colorizer').setup()
-    end,
-  },
+      require("nvim-highlight-colors").setup({
+        render = 'virtual',            -- Tells the plugin to use a virtual symbol instead of painting the whole background
+        virtual_symbol = '󱓻',         -- The visual block icon that displays the color
+        virtual_symbol_position = 'inline', -- Places the visual block RIGHT NEXT to where the color is written
+        enable_tailwind = true,        -- Also works for Tailwind CSS classes
+      })
+    end
+  }
 }

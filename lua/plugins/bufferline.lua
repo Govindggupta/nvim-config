@@ -11,26 +11,26 @@ return {
           {
             filetype = "neo-tree",
             text = function()
-          return vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
-        end,
+              return vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+            end,
             highlight = "Directory",
             text_align = "center",
-            separator = true
+            separator = true,
           },
-      highlights = {
-        separator = {
-          fg = '#434C5E',
-        },
-        buffer_selected = {
-          bold = true,
-          italic = false,
-        },
-        -- separator_selected = {},
-        -- tab_selected = {},
-        -- background = {},
-        -- indicator_selected = {},
-        -- fill = {},
-      },
+          highlights = {
+            separator = {
+              fg = '#ffffff',
+            },
+            buffer_selected = {
+              bold = true,
+              italic = false,
+            },
+            -- separator_selected = {},
+            -- tab_selected = {},
+            -- background = {},
+            -- indicator_selected = {},
+            -- fill = {},
+          },
         },
       },
     },
