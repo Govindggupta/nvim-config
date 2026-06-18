@@ -19,10 +19,13 @@ return {
       vim.api.nvim_set_hl(0, "CursorLine", { bg = "none" })
 
       -- Neotree line color change
-      vim.api.nvim_set_hl(0, "NeoTreeWinSeparator", { fg = "#ffffff", bg = "NONE" })
+      vim.api.nvim_set_hl(0, "NeoTreeWinSeparator", { fg = "#8e918f", bg = "NONE" })
 
       -- bufferline saparator line color change  
-      vim.api.nvim_set_hl(0, "BufferLineOffsetSeparator", {fg = "#ffffff",})
+      vim.api.nvim_set_hl(0, "BufferLineOffsetSeparator", {fg = "#8e918f",})
+
+      -- neotree cursor line 
+      vim.api.nvim_set_hl(0, "NeoTreeCursorLine", {bg = "#3c3c3c",fg = "#ffffff" ,bold= true})
     end,
   },
 }
