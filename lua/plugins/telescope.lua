@@ -25,12 +25,16 @@ return {
     require('telescope').setup {
       defaults = {
         layout_strategy = 'horizontal',
+        sorting_strategy = "ascending",
         layout_config = {
           horizontal = {
-        --     prompt_position = 'bottom',
+            prompt_position = 'top',
             preview_width = 0.5,
         --     width = { padding = 0 },
         --     height = { padding = 0 },
+          },
+          vertical = {
+            prompt_position = 'top'
           },
         },
         mappings = {
