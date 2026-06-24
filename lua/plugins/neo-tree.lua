@@ -1,19 +1,20 @@
 return {
-    {
-        "nvim-neo-tree/neo-tree.nvim",
-        branch = "v3.x",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-            "MunifTanjim/nui.nvim",
-            "nvim-tree/nvim-web-devicons",
-        },
-        opts = {
-            filesystem = {
-                follow_current_file = {
-                    enabled = true,
-                },
-            },
-            enable_git_status = true,
-        },
-    },
+	{
+		"nvim-neo-tree/neo-tree.nvim",
+		branch = "v3.x",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"MunifTanjim/nui.nvim",
+			"nvim-tree/nvim-web-devicons",
+		},
+		opts = {
+			filesystem = {
+				follow_current_file = {
+					enabled = true,
+				},
+			},
+			enable_git_status = true,
+			popup_border_style = "rounded",
+		},
+	},
 }
