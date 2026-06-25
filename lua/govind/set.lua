@@ -1,4 +1,3 @@
-
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
@@ -31,24 +30,26 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 
 vim.opt.fillchars = {
-  eob = " ",
+	eob = " ",
 }
 -- vim.opt.colorcolumn = "150"
 --
 vim.opt.timeout = true
 vim.opt.timeoutlen = 1000
 
--- border for the windows 
+-- border for the windows
 -- Floating windows
 vim.o.winborder = "rounded"
 
 -- Highlight yank
-vim.api.nvim_create_autocmd('TextYankPost', {
-  group = vim.api.nvim_create_augroup('highlight_yank', {}),
-  desc = 'Hightlight selection on yank',
-  pattern = '*',
-  callback = function()
-    vim.highlight.on_yank { higroup = 'IncSearch', timeout = 150 }
-  end,
+vim.api.nvim_create_autocmd("TextYankPost", {
+	group = vim.api.nvim_create_augroup("highlight_yank", {}),
+	desc = "Hightlight selection on yank",
+	pattern = "*",
+	callback = function()
+		vim.highlight.on_yank({ higroup = "IncSearch", timeout = 150 })
+	end,
 })
 
+-- no diagnostic in gutter
+vim.diagnostic.config({ signs = false })

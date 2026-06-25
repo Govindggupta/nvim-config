@@ -1,31 +1,30 @@
 return {
-  {
-    "folke/tokyonight.nvim",
-    priority = 1000,
-    config = function()
-      require("tokyonight").setup({
-        transparent = true,
-      })
+	{
+		"folke/tokyonight.nvim",
+		priority = 1000,
+		config = function()
+			require("tokyonight").setup({
+				transparent = true,
+			})
 
-      vim.cmd.colorscheme("tokyonight")
+			vim.cmd.colorscheme("tokyonight")
 
+			--Transparent background Setting
+			vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+			vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
+			vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+			vim.api.nvim_set_hl(0, "NeoTreeNormal", { bg = "none" })
+			vim.api.nvim_set_hl(0, "NeoTreeNormalNC", { bg = "none" })
+			vim.api.nvim_set_hl(0, "CursorLine", { bg = "none" })
 
-      --Transparent background Setting
-      vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-      vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
-      vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-      vim.api.nvim_set_hl(0, "NeoTreeNormal", { bg = "none" })
-      vim.api.nvim_set_hl(0, "NeoTreeNormalNC", { bg = "none" })
-      vim.api.nvim_set_hl(0, "CursorLine", { bg = "none" })
+			-- Neotree line color change
+			vim.api.nvim_set_hl(0, "NeoTreeWinSeparator", { fg = "#8e918f", bg = "NONE" })
 
-      -- Neotree line color change
-      vim.api.nvim_set_hl(0, "NeoTreeWinSeparator", { fg = "#8e918f", bg = "NONE" })
+			-- bufferline saparator line color change
+			vim.api.nvim_set_hl(0, "BufferLineOffsetSeparator", { fg = "#8e918f" })
 
-      -- bufferline saparator line color change  
-      vim.api.nvim_set_hl(0, "BufferLineOffsetSeparator", {fg = "#8e918f",})
-
-      -- neotree cursor line 
-      vim.api.nvim_set_hl(0, "NeoTreeCursorLine", {bg = "#3c3c3c",fg = "#ffffff" ,bold= true})
-    end,
-  },
+			-- neotree cursor line
+			vim.api.nvim_set_hl(0, "NeoTreeCursorLine", { bg = "#3c3c3c", fg = "#ffffff", bold = true })
+		end,
+	},
 }
