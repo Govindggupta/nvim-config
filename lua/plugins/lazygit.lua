@@ -15,7 +15,6 @@ return {
 	-- order to load the plugin when the command is run for the first time
 	keys = {
 		{ "<leader>gg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
-		{ "<Esc>", "<cmd>close<cr>", mode = "t", ft = "lazygit", desc = "Close LazyGit Window" },
 	},
 	config = function()
 		vim.g.lazygit_floating_window_winblend = 0 -- transparency of floating window (0-100)
