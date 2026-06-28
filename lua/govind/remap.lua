@@ -113,9 +113,9 @@ vim.keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<CR>", { desc = "Buffer
 vim.keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", { desc = "Help Tags" })
 
 -- for formating
-vim.keymap.set("n", "<leader>f", function()
+vim.keymap.set({ "n", "v" }, "gq", function()
 	require("conform").format({
 		async = true,
 		lsp_fallback = true,
 	})
-end, { desc = "Format file" })
+end, { desc = "Format" })
