@@ -66,7 +66,7 @@ vim.keymap.set("n", "<leader><leader>", function()
 end)
 
 -- neotree toggle
-vim.keymap.set("n", "<C-e>", "<cmd>Neotree toggle<CR>", {
+vim.keymap.set({"n", "i"}, "<C-e>", "<cmd>Neotree toggle<CR>", {
 	desc = "Toggle file explorer",
 })
 
