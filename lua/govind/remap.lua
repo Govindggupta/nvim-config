@@ -66,7 +66,7 @@ vim.keymap.set("n", "<leader><leader>", function()
 end)
 
 -- neotree toggle
-vim.keymap.set({"n", "i"}, "<C-e>", "<cmd>Neotree toggle<CR>", {
+vim.keymap.set({ "n", "i" }, "<C-e>", "<cmd>Neotree toggle<CR>", {
 	desc = "Toggle file explorer",
 })
 
@@ -119,3 +119,7 @@ vim.keymap.set({ "n", "v" }, "gq", function()
 		lsp_fallback = true,
 	})
 end, { desc = "Format" })
+
+-- Indent code backward in Visual mode with Shift + Tab
+vim.keymap.set("v", "<Tab>", ">gv", { desc = "Indent line/block forward" })
+vim.keymap.set("v", "<S-Tab>", "<gv", { desc = "Indent line/block backward" })
