@@ -1,8 +1,19 @@
 -- Standalone plugins with less than 10 lines of config go here
 return {
 	{
-		-- autoclose tags
+		-- autoclose/rename html tags
 		"windwp/nvim-ts-autotag",
+		event = "InsertEnter",
+		opts = {
+			opts = {
+				enable_close = true,
+				enable_rename = true,
+				enable_close_on_slash = false,
+			},
+		},
+		config = function(_, opts)
+			require("nvim-ts-autotag").setup(opts)
+		end,
 	},
 	{
 		-- detect tabstop and shiftwidth automatically
