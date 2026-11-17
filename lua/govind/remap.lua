@@ -123,3 +123,18 @@ end, { desc = "Format" })
 -- Indent code backward in Visual mode with Shift + Tab
 vim.keymap.set("v", "<Tab>", ">gv", { desc = "Indent line/block forward" })
 vim.keymap.set("v", "<S-Tab>", "<gv", { desc = "Indent line/block backward" })
+
+-- Normal mode: <C-Space> trigger completion (same as cmp.insert <C-Space>)
+vim.keymap.set("n", "<C-Space>", function()
+  vim.api.nvim_feedkeys("a", "n", false)
+  vim.schedule(function()
+    require("cmp").complete()
+  end)
+end, { desc = "Trigger completion" })
+
+-- Normal mode: gh -> hover preview (vscode: editor.action.showDefinitionPreviewHover)
+vim.keymap.set("n", "gh", vim.lsp.buf.hover, { desc = "Show definition preview hover" })
+
+-- Normal mode indenting (vscode: indentLines / outdentLines)
+vim.keymap.set("n", "<Tab>", ">>", { desc = "Indent line" })
+vim.keymap.set("n", "<S-Tab>", "<<", { desc = "Outdent line" })
