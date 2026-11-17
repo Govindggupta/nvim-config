@@ -24,17 +24,13 @@ vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
-vim.opt.updatetime = 50
-
-vim.opt.number = true
-vim.opt.relativenumber = true
+vim.opt.updatetime = 300
 
 vim.opt.fillchars = {
 	eob = " ",
 }
 -- vim.opt.colorcolumn = "150"
 --
-vim.opt.timeout = true
 vim.opt.timeoutlen = 1000
 
 -- border for the windows

@@ -1,106 +1,106 @@
 -- Highlight, edit, and navigate code
 return {
-  'nvim-treesitter/nvim-treesitter',
-  build = ':TSUpdate',
+  "nvim-treesitter/nvim-treesitter",
+  build = ":TSUpdate",
   dependencies = {
-    'nvim-treesitter/nvim-treesitter-textobjects',
+    "nvim-treesitter/nvim-treesitter-textobjects",
   },
   config = function()
-    require('nvim-treesitter.config').setup {
-      -- Add languages to be installed here that you want installed for treesitter
-      ensure_installed = {
-        'lua',
-        'python',
-        'javascript',
-        'typescript',
-        'vimdoc',
-        'vim',
-        'regex',
-        'terraform',
-        'sql',
-        'dockerfile',
-        'toml',
-        'json',
-        'java',
-        'groovy',
-        'go',
-        'gitignore',
-        'graphql',
-        'yaml',
-        'make',
-        'cmake',
-        'markdown',
-        'markdown_inline',
-        'bash',
-        'tsx',
-        'css',
-        'html',
-      },
+    -- The main branch no longer auto-installs parsers, so install the missing ones ourselves.
+    require("nvim-treesitter").install({
+      "lua",
+      "python",
+      "javascript",
+      "typescript",
+      "vimdoc",
+      "vim",
+      "regex",
+      "terraform",
+      "sql",
+      "dockerfile",
+      "toml",
+      "json",
+      "java",
+      "groovy",
+      "go",
+      "gitignore",
+      "graphql",
+      "yaml",
+      "make",
+      "cmake",
+      "markdown",
+      "markdown_inline",
+      "bash",
+      "tsx",
+      "css",
+      "html",
+    })
 
-      -- Autoinstall languages that are not installed
-      auto_install = true,
+    -- Start treesitter highlighting for any filetype that has an installed parser.
+    vim.api.nvim_create_autocmd("FileType", {
+      callback = function(args)
+        pcall(vim.treesitter.start, args.buf)
+      end,
+    })
 
-      highlight = { enable = true },
-      indent = { enable = true },
-      incremental_selection = {
-        enable = true,
-        keymaps = {
-          init_selection = '<c-space>',
-          node_incremental = '<c-space>',
-          scope_incremental = '<c-s>',
-          node_decremental = '<M-space>',
-        },
-      },
-      textobjects = {
-        select = {
-          enable = true,
-          lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
-          keymaps = {
-            -- You can use the capture groups defined in textobjects.scm
-            ['aa'] = '@parameter.outer',
-            ['ia'] = '@parameter.inner',
-            ['af'] = '@function.outer',
-            ['if'] = '@function.inner',
-            ['ac'] = '@class.outer',
-            ['ic'] = '@class.inner',
-          },
-        },
-        move = {
-          enable = true,
-          set_jumps = true, -- whether to set jumps in the jumplist
-          goto_next_start = {
-            [']m'] = '@function.outer',
-            [']]'] = '@class.outer',
-          },
-          goto_next_end = {
-            [']M'] = '@function.outer',
-            [']['] = '@class.outer',
-          },
-          goto_previous_start = {
-            ['[m'] = '@function.outer',
-            ['[['] = '@class.outer',
-          },
-          goto_previous_end = {
-            ['[M'] = '@function.outer',
-            ['[]'] = '@class.outer',
-          },
-        },
-        swap = {
-          enable = true,
-          swap_next = {
-            ['<leader>a'] = '@parameter.inner',
-          },
-          swap_previous = {
-            ['<leader>A'] = '@parameter.inner',
-          },
-        },
-      },
-    }
+    -- Use treesitter indentation only where an indents query exists.
+    vim.api.nvim_create_autocmd("FileType", {
+      callback = function(args)
+        local ok, files = pcall(vim.treesitter.query.get_files, vim.bo[args.buf].filetype, "indents")
+        if ok and #files > 0 then
+          vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+        end
+      end,
+    })
+
+    require("nvim-treesitter-textobjects").setup({
+      select = { lookahead = true },
+      move = { set_jumps = true },
+    })
+
+    local function select_textobject(key, query)
+      vim.keymap.set({ "x", "o" }, key, function()
+        require("nvim-treesitter-textobjects.select").select_textobject(query, "textobjects")
+      end)
+    end
+
+    select_textobject("aa", "@parameter.outer")
+    select_textobject("ia", "@parameter.inner")
+    select_textobject("af", "@function.outer")
+    select_textobject("if", "@function.inner")
+    select_textobject("ac", "@class.outer")
+    select_textobject("ic", "@class.inner")
+
+    local function map_move(key, method, query)
+      vim.keymap.set({ "n", "x", "o" }, key, function()
+        require("nvim-treesitter-textobjects.move")[method](query, "textobjects")
+      end)
+    end
+
+    map_move("]m", "goto_next_start", "@function.outer")
+    map_move("]]", "goto_next_start", "@class.outer")
+    map_move("]M", "goto_next_end", "@function.outer")
+    map_move("][", "goto_next_end", "@class.outer")
+    map_move("[m", "goto_previous_start", "@function.outer")
+    map_move("[[", "goto_previous_start", "@class.outer")
+    map_move("[M", "goto_previous_end", "@function.outer")
+    map_move("[]", "goto_previous_end", "@class.outer")
+
+    vim.keymap.set("n", "<leader>a", function()
+      require("nvim-treesitter-textobjects.swap").swap_next("@parameter.inner")
+    end)
+    vim.keymap.set("n", "<leader>A", function()
+      require("nvim-treesitter-textobjects.swap").swap_previous("@parameter.inner")
+    end)
 
     -- Register additional file extensions
-    vim.filetype.add { extension = { tf = 'terraform' } }
-    vim.filetype.add { extension = { tfvars = 'terraform' } }
-    vim.filetype.add { extension = { pipeline = 'groovy' } }
-    vim.filetype.add { extension = { multibranch = 'groovy' } }
+    vim.filetype.add({
+      extension = {
+        tf = "terraform",
+        tfvars = "terraform",
+        pipeline = "groovy",
+        multibranch = "groovy",
+      },
+    })
   end,
 }

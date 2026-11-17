@@ -71,7 +71,6 @@ return { -- Autocompletion
         ['<C-j>'] = cmp.mapping.select_next_item(), -- Select the [n]ext item
         ['<C-k>'] = cmp.mapping.select_prev_item(), -- Select the [p]revious item
         ['<CR>'] = cmp.mapping.confirm { select = true }, -- Accept the completion with Enter.
-        ['<C-c>'] = cmp.mapping.complete {}, -- Manually trigger a completion from nvim-cmp.
         ['<C-Space>'] = cmp.mapping(function()
           if cmp.visible() then
             cmp.confirm { select = true }

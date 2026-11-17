@@ -14,12 +14,6 @@ vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("n", "=ap", "ma=ap'a")
 vim.keymap.set("n", "<leader>zig", "<cmd>LspRestart<cr>")
 
-vim.keymap.set("n", "<leader>vwm", function()
-	require("vim-with-me").StartVimWithMe()
-end)
-vim.keymap.set("n", "<leader>svwm", function()
-	require("vim-with-me").StopVimWithMe()
-end)
 vim.keymap.set("n", "<leader>lt", function()
 	vim.cmd([[ PlenaryBustedFile % ]])
 end)
@@ -56,14 +50,6 @@ vim.keymap.set("n", "<leader>ea", 'oassert.NoError(err, "")<Esc>F";a')
 vim.keymap.set("n", "<leader>ef", 'oif err != nil {<CR>}<Esc>Olog.Fatalf("error: %s\\n", err.Error())<Esc>jj')
 
 vim.keymap.set("n", "<leader>el", 'oif err != nil {<CR>}<Esc>O.logger.Error("error", "error", err)<Esc>F.;i')
-
-vim.keymap.set("n", "<leader>ca", function()
-	require("cellular-automaton").start_animation("make_it_rain")
-end)
-
-vim.keymap.set("n", "<leader><leader>", function()
-	vim.cmd("so")
-end)
 
 -- neotree toggle
 vim.keymap.set({ "n", "i" }, "<C-e>", "<cmd>Neotree toggle<CR>", {
